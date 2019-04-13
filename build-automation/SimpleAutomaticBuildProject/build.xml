@@ -9,6 +9,7 @@
 	<delete dir="${build-ant}"/>
     <delete dir="${projectJar}"/>
     <delete dir="${installDir}"/>
+	<delete dir="${jarDir}"/>
   </target>
   
   
@@ -23,6 +24,14 @@
   <!-- compiles defined java src files and store them into destination directory -->
   <target name="compile" depends="init">
     <javac srcdir="src" destdir="${build-ant}" includeantruntime="false"/>
-  </target>  
+  </target> 
+  
+  <target name="jar" depends ="compile">
+	<jar destfile="${jarDir}/${projectJar}" basedir="${build-ant}">
+		<manifest>
+			<attribute name="Main-Class" value="at.fhj.iit.Main" />
+		</manifest>
+	</jar>
+</target>
   
 </project>

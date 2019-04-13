@@ -11,6 +11,7 @@
     <delete dir="${installDir}"/>
 	<delete dir="${jarDir}"/>
 	<delete dir="${installationDir}"/>
+	<delete file="${output.txt}"/>
   </target>
   
   
@@ -33,11 +34,15 @@
 			<attribute name="Main-Class" value="at.fhj.iit.Main" />
 		</manifest>
 	</jar>
-</target>
+	</target>
 
-<target name="install" depends="jar">
+	<target name="install" depends="jar">
 		<mkdir dir="installationDir"/>
 		<copy file="${jarDir}/${projectJar}" todir="${installationDir}"/>
-</target>
-  
+	</target>
+
+	<target name="run" depends="jar">
+		<echo message="running"/>
+		<java jar="${jarDir}/${projectJar}" output="${output.txt}" fork="true"/>
+	</target>
 </project>

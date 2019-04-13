@@ -10,6 +10,7 @@
     <delete dir="${projectJar}"/>
     <delete dir="${installDir}"/>
 	<delete dir="${jarDir}"/>
+	<delete dir="${installationDir}"/>
   </target>
   
   
@@ -32,6 +33,11 @@
 			<attribute name="Main-Class" value="at.fhj.iit.Main" />
 		</manifest>
 	</jar>
+</target>
+
+<target name="install" depends="jar">
+		<mkdir dir="installationDir"/>
+		<copy file="${jarDir}/${projectJar}" todir="${installationDir}"/>
 </target>
   
 </project>

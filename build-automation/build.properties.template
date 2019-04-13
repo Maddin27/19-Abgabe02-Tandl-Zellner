@@ -1,0 +1,6 @@
+name = Tandl and Zellner
+src = ./src
+build-ant = ./build-ant
+jarDir = ./lib
+installDir = ./dist
+projectJar = 19-Abgabe02-Tandl-Zellner.jar
